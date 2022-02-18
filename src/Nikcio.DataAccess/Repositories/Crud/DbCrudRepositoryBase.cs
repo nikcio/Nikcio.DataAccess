@@ -77,7 +77,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         }
 
         /// <inheritdoc/>
-        public async Task<IQueryable<TDomain>> QueryDbSet() {
+        public virtual async Task<IQueryable<TDomain>> QueryDbSet() {
             try {
                 return await Task.FromResult(dbSet);
             } catch (Exception e) {
@@ -107,7 +107,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         /// <param name="collectionKeySelector"></param>
         /// <returns></returns>
         /// <exception cref="TaskCanceledException"></exception>
-        protected async Task<TDomain> AddToCollection<TCollectionItemType>(int id, int[] collectionIds, Func<TDomain, List<TCollectionItemType>> collectionKeySelector)
+        protected virtual async Task<TDomain> AddToCollection<TCollectionItemType>(int id, int[] collectionIds, Func<TDomain, List<TCollectionItemType>> collectionKeySelector)
             where TCollectionItemType : class, IGenericId, new() {
             try {
                 var domain = await GetByIdAsync(id);
@@ -129,7 +129,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         /// <param name="collectionKeySelector"></param>
         /// <returns></returns>
         /// <exception cref="TaskCanceledException"></exception>
-        protected async Task<TDomain> RemoveFromCollection<TCollectionItemType>(int id, int[] collectionIds, Func<TDomain, List<TCollectionItemType>> collectionKeySelector)
+        protected virtual async Task<TDomain> RemoveFromCollection<TCollectionItemType>(int id, int[] collectionIds, Func<TDomain, List<TCollectionItemType>> collectionKeySelector)
             where TCollectionItemType : class, IGenericId, new() {
             try {
                 var domain = await GetByIdAsync(id);
