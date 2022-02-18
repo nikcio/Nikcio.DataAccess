@@ -1,0 +1,1 @@
+dotnet pack .\src\Nikcio.DataAccess\Nikcio.DataAccess.csproj -c release -o .\releases\nuget
