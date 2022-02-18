@@ -12,7 +12,7 @@ namespace Nikcio.DataAccess.Repositories {
         /// Default constructor
         /// </summary>
         /// <param name="context"></param>
-        public DbRepositoryBase(IDbContext context) {
+        protected DbRepositoryBase(IDbContext context) {
             _context = context.Context;
         }
 
