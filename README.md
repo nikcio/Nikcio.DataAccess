@@ -4,9 +4,14 @@ This is based upon the code created here: [Limbo.DataAccess](https://github.com/
 
 ## Content
 
+- Install
 - Description
 - Documentation
 
+### Install
+```
+dotnet add package Nikcio.DataAccess
+```
 
 ### Description
 This repository creates classes commonly used when working with EF core. It contains a bunch of generic classes that can help you quickly set up CRUD functionality with EF core.
