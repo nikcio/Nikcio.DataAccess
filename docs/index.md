@@ -1,5 +1,14 @@
 # Documentation
 
+## Getting started
+To get started you add the following extention to your services in your `startup.cs`
+
+```
+services.AddDataAccess(configuration);
+```
+
+This will add the possibility to set the settings found in `DataAccessSettings.cs`
+
 ## Contexts
 The context model IDbContext creates a base for referencing a DbContext this will need to be added to the DbContext created in your project.
 
