@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using Nikcio.DataAccess.Repositories;
@@ -10,7 +8,7 @@ namespace Nikcio.DataAccess.UnitOfWorks {
     public class UnitOfWork<TRepository> : IUnitOfWork<TRepository>
         where TRepository : IDbRepositoryBase {
         private readonly DbContext _context;
-        private IDbContextTransaction _transaction;
+        private IDbContextTransaction? _transaction;
 
         /// <summary>
         /// Default constructor

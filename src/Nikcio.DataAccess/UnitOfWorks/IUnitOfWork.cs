@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Threading.Tasks;
 using Nikcio.DataAccess.Repositories;
 
 namespace Nikcio.DataAccess.UnitOfWorks {

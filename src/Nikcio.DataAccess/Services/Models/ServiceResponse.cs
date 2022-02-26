@@ -8,13 +8,13 @@ namespace Nikcio.DataAccess.Services.Models {
         /// </summary>
         /// <param name="statusCode"></param>
         /// <param name="reponse"></param>
-        public ServiceResponse(HttpStatusCode statusCode, T reponse) {
+        public ServiceResponse(HttpStatusCode statusCode, T? reponse) {
             StatusCode = statusCode;
             ReponseValue = reponse;
         }
         /// <inheritdoc/>
         public HttpStatusCode StatusCode { get; set; }
         /// <inheritdoc/>
-        public T ReponseValue { get; set; }
+        public T? ReponseValue { get; set; }
     }
 }

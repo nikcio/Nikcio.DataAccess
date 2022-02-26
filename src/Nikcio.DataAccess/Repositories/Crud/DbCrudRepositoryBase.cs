@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Nikcio.DataAccess.Contexts.Models;
+﻿using Nikcio.DataAccess.Contexts.Models;
 using Nikcio.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

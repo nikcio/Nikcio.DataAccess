@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Nikcio.DataAccess.Models;
+﻿using Nikcio.DataAccess.Models;
 
 namespace Nikcio.DataAccess.Repositories.Crud {
     /// <summary>

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Net;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Nikcio.DataAccess.UnitOfWorks;
 using Nikcio.DataAccess.Repositories;

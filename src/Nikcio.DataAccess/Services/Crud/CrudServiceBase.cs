@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Net;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Nikcio.DataAccess.Repositories.Crud;
 using Nikcio.DataAccess.Repositories;
 using Nikcio.DataAccess.Models;
 using Nikcio.DataAccess.Services.Models;
-using System.Linq;
 using Nikcio.DataAccess.Settings;
 
 namespace Nikcio.DataAccess.Services.Crud {
@@ -30,6 +27,7 @@ namespace Nikcio.DataAccess.Services.Crud {
         /// </summary>
         /// <param name="repository"></param>
         /// <param name="logger"></param>
+        /// <param name="dataAccessSettings"></param>
         protected CrudServiceBase(TRepository repository, ILogger<ServiceBase<TRepository>> logger, DataAccessSettings dataAccessSettings) : base(repository, logger) {
             this.repository = repository;
             this.dataAccessSettings = dataAccessSettings;
@@ -49,9 +47,9 @@ namespace Nikcio.DataAccess.Services.Crud {
 
         /// <inheritdoc/>
         public virtual async Task<IServiceResponse<TDomain>> DeleteById(int id, IsolationLevel isolationLevel) {
-            return await ExecuteServiceTask<TDomain>(async () => {
+            return await ExecuteServiceTask(async () => {
                 await repository.DeleteByIdAsync(id);
-                return null;
+                return new TDomain();
             }, HttpStatusCode.NoContent, isolationLevel);
         }
 
