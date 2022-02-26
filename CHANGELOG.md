@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.1](https://github.com/nikcio/Nikcio.DataAccess/compare/v2.0.0...v2.2.0) (2022-02-26)
+
+
+### Bug Fixes
+
+* Fixed settings not being read ([005c2e4](https://github.com/nikcio/Nikcio.DataAccess/commit/005c2e4685bb0ef95734c8b2ed414bf0a043febe))
+
 ## [2.0.0](https://github.com/nikcio/Nikcio.DataAccess/compare/v1.2.0...v2.0.0) (2022-02-26)
 
 
