@@ -43,7 +43,7 @@ namespace Nikcio.DataAccess.Services.Crud {
 
         /// <inheritdoc/>
         public async Task<IServiceResponse<TDomain>> Add(TDomain entity) {
-            return await Add(entity, dataAccessSettings.DefaultIsolationLevel);
+            return await Add(entity, dataAccessSettings.DefaultIsolationLevel).ConfigureAwait(false);
         }
 
         /// <inheritdoc/>
@@ -56,7 +56,7 @@ namespace Nikcio.DataAccess.Services.Crud {
 
         /// <inheritdoc/>
         public async Task<IServiceResponse<TDomain>> DeleteById(int id) {
-            return await DeleteById(id, dataAccessSettings.DefaultIsolationLevel);
+            return await DeleteById(id, dataAccessSettings.DefaultIsolationLevel).ConfigureAwait(false);
         }
 
         /// <inheritdoc/>
@@ -68,7 +68,7 @@ namespace Nikcio.DataAccess.Services.Crud {
 
         /// <inheritdoc/>
         public async Task<IServiceResponse<IEnumerable<TDomain>>> GetAll() {
-            return await GetAll(dataAccessSettings.DefaultIsolationLevel);
+            return await GetAll(dataAccessSettings.DefaultIsolationLevel).ConfigureAwait(false);
         }
 
         /// <inheritdoc/>
@@ -80,7 +80,7 @@ namespace Nikcio.DataAccess.Services.Crud {
 
         /// <inheritdoc/>
         public async Task<IServiceResponse<TDomain>> GetById(int id) {
-            return await GetById(id, dataAccessSettings.DefaultIsolationLevel);
+            return await GetById(id, dataAccessSettings.DefaultIsolationLevel).ConfigureAwait(false);
         }
 
         /// <inheritdoc/>
@@ -92,7 +92,7 @@ namespace Nikcio.DataAccess.Services.Crud {
 
         /// <inheritdoc/>
         public async Task<IServiceResponse<IQueryable<TDomain>>> QueryDbSet() {
-            return await QueryDbSet(dataAccessSettings.DefaultIsolationLevel);
+            return await QueryDbSet(dataAccessSettings.DefaultIsolationLevel).ConfigureAwait(false);
         }
 
         /// <inheritdoc/>
@@ -104,7 +104,7 @@ namespace Nikcio.DataAccess.Services.Crud {
 
         /// <inheritdoc/>
         public async Task<IServiceResponse<TDomain>> Update(TDomain entity) {
-            return await Update(entity, dataAccessSettings.DefaultIsolationLevel);
+            return await Update(entity, dataAccessSettings.DefaultIsolationLevel).ConfigureAwait(false);
         }
     }
 }
