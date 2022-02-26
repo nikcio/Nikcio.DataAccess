@@ -1,5 +1,8 @@
 # Nikcio.DataAccess
 
+<a href="https://codeclimate.com/github/nikcio/Nikcio.DataAccess/maintainability"><img src="https://api.codeclimate.com/v1/badges/075193355b3002c51f4d/maintainability" /></a>
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/581b1090b98a48e48d3daa84d71343e2)](https://www.codacy.com/gh/nikcio/Nikcio.DataAccess/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nikcio/Nikcio.DataAccess&amp;utm_campaign=Badge_Grade)
+
 This is based upon the code created here: [Limbo.DataAccess](https://github.com/limbo-works/Limbo.Umbraco.Subscriptions/tree/f04212f49620b34aa3ed7161f3558d17fda6efa1/src/Limbo.DataAccess)
 
 ## Content
