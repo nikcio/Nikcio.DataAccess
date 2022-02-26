@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/nikcio/Nikcio.DataAccess/compare/v1.2.0...v2.0.0) (2022-02-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* No longer supports .Net 5. Upgrade to .Net 6
+
+### Features
+
+* .Net 6 & nullable support ([16a02ac](https://github.com/nikcio/Nikcio.DataAccess/commit/16a02ac3d41d2c788c3b68d8071438c33a1b30c6))
+
 ## [1.2.0](https://github.com/nikcio/Nikcio.DataAccess/compare/v1.0.0...v1.2.0) (2022-02-26)
 
 
