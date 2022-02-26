@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/nikcio/Nikcio.DataAccess/compare/v1.0.0...v1.1.0) (2022-02-26)
+
+
+### Features
+
+* Added settings for default isolation level ([b42e918](https://github.com/nikcio/Nikcio.DataAccess/commit/b42e91885d9c00bcf1bf880e6f40c7cbc2f076f3))
+* Changed visibility of constructors ([6eb0cca](https://github.com/nikcio/Nikcio.DataAccess/commit/6eb0cca96cb99c731bbfb91a29df9632abc1bf72))
+
 ## 1.0.0 (2022-02-18)
 
 
