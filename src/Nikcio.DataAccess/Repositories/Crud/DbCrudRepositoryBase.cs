@@ -63,7 +63,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         }
 
         /// <inheritdoc/>
-        public virtual async Task<TDomain> GetByIdAsync(int id) {
+        public virtual async Task<TDomain?> GetByIdAsync(int id) {
             try {
                 return await dbSet.FindAsync(id);
             } catch (Exception e) {
@@ -107,6 +107,10 @@ namespace Nikcio.DataAccess.Repositories.Crud {
             where TCollectionItemType : class, IGenericId, new() {
             try {
                 var domain = await GetByIdAsync(id).ConfigureAwait(false);
+                if (domain == null) {
+                    throw new ArgumentException("Id must reference a valid entity", nameof(id));
+                }
+
                 var collection = collectionIds.Where(itemId => !collectionKeySelector(domain).Any(item => item.Id == itemId)).Select(itemId => new TCollectionItemType { Id = itemId });
                 collectionKeySelector(domain).AddRange(collection);
                 return domain;
@@ -130,6 +134,10 @@ namespace Nikcio.DataAccess.Repositories.Crud {
             try {
                 var domain = await GetByIdAsync(id).ConfigureAwait(false);
                 var collection = collectionIds.Select(itemId => new TCollectionItemType { Id = itemId });
+                if (domain == null) {
+                    throw new ArgumentException("Id must reference a valid entity", nameof(id));
+                }
+
                 collectionKeySelector(domain).RemoveAll(collectionItem => collection.Any(c => c.Id == collectionItem.Id));
                 return domain;
             } catch (Exception e) {

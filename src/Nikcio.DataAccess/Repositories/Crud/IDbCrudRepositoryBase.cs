@@ -24,7 +24,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<TDomain> GetByIdAsync(int id);
+        Task<TDomain?> GetByIdAsync(int id);
 
         /// <summary>
         /// Deletes an entity by id
