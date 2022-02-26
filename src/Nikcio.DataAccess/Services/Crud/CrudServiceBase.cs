@@ -30,8 +30,9 @@ namespace Nikcio.DataAccess.Services.Crud {
         /// </summary>
         /// <param name="repository"></param>
         /// <param name="logger"></param>
-        protected CrudServiceBase(TRepository repository, ILogger<ServiceBase<TRepository>> logger) : base(repository, logger) {
+        protected CrudServiceBase(TRepository repository, ILogger<ServiceBase<TRepository>> logger, DataAccessSettings dataAccessSettings) : base(repository, logger) {
             this.repository = repository;
+            this.dataAccessSettings = dataAccessSettings;
         }
 
         /// <inheritdoc/>
