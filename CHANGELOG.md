@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * .Net 6 & nullable support ([16a02ac](https://github.com/nikcio/Nikcio.DataAccess/commit/16a02ac3d41d2c788c3b68d8071438c33a1b30c6))
+* Bumped EF Core dependency ([b30c7e7](https://github.com/nikcio/Nikcio.DataAccess/commit/b30c7e71ab6a2b259833de32de029637f2f662d1))
 
 ## [1.2.0](https://github.com/nikcio/Nikcio.DataAccess/compare/v1.0.0...v1.2.0) (2022-02-26)
 
