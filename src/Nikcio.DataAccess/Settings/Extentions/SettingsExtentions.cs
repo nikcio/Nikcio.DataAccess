@@ -17,7 +17,7 @@ namespace Nikcio.DataAccess.Settings.Extentions {
             var dataAccessSettings = new DataAccessSettings();
             configuration.Bind(configurationSection, dataAccessSettings);
             services
-                .AddSingleton<DataAccessSettings>();
+                .AddSingleton(dataAccessSettings);
 
             return services;
         }
