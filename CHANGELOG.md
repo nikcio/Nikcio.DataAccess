@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/nikcio/Nikcio.DataAccess/compare/v2.0.1...v2.0.2) (2022-03-01)
+
+
+### Bug Fixes
+
+* Fixed typos ([8fb0748](https://github.com/nikcio/Nikcio.DataAccess/commit/8fb07482fc4dc3bcdc81aef574e10314a885c9d9))
+
 ## [2.0.1](https://github.com/nikcio/Nikcio.DataAccess/compare/v2.0.0...v2.2.0) (2022-02-26)
 
 
