@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nikcio.DataAccess.Settings.Extentions;
+using Nikcio.DataAccess.Settings.Extensions;
 
-namespace Nikcio.DataAccess.Extentions {
+namespace Nikcio.DataAccess.Extensions {
     /// <summary>
-    /// Extentions
+    /// Extensions
     /// </summary>
-    public static class DataAccessExtentions {
+    public static class DataAccessExtensions {
         /// <summary>
         /// Adds services for data access
         /// </summary>
