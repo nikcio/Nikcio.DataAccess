@@ -32,7 +32,7 @@ namespace Nikcio.DataAccess.UnitOfWorks {
         public async Task CommitUnitOfWorkAsync() {
             if (_transaction != null) {
                 try {
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                     await _transaction.CommitAsync();
                 } catch (Exception) {
                     await _transaction.RollbackAsync();
