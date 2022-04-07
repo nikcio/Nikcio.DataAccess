@@ -110,9 +110,9 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 if (domain == null) {
                     throw new ArgumentException("Id must reference a valid entity", nameof(id));
                 }
-
-                var collection = collectionIds.Where(itemId => !collectionKeySelector(domain).Any(item => item.Id == itemId)).Select(itemId => new TCollectionItemType { Id = itemId });
-                collectionKeySelector(domain).AddRange(collection);
+                var collection = collectionIds.Where(itemId => !collectionKeySelector(domain).Any(item => item.Id == itemId));
+                var loadedCollection = GetDBContext().Set<TCollectionItemType>().Where(item => collection.Any(id => id == item.Id));
+                collectionKeySelector(domain).AddRange(loadedCollection);
                 return domain;
             } catch (Exception e) {
                 logger.LogError(e, $"Failed while adding collection {typeof(List<TCollectionItemType>)} to {typeof(TDomain)}");
