@@ -9,7 +9,7 @@ namespace Nikcio.DataAccess.Services.Models {
         /// <summary>
         /// The response value
         /// </summary>
-        T? ReponseValue { get; set; }
+        T? ResponseValue { get; set; }
 
         /// <summary>
         /// The returned http status code
