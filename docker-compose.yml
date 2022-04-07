@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  TestDatabase:
+    image: mcr.microsoft.com/mssql/server:latest
+    user: root
+    volumes:
+      - TestDatabase:/var/opt/mssql/data
+    environment:
+     - ACCEPT_EULA=Y
+     - MSSQL_PID=Express
+     - SA_PASSWORD=Fe1tgmd%ff#DJNhGm3yoF6wl%!VI7v
+    container_name: "TestDatabase"
+    ports:
+     - "55555:1433" 
+
+volumes:
+  TestDatabase:
