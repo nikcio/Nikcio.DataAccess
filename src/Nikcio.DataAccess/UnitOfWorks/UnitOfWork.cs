@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using System.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Data;
+using Microsoft.EntityFrameworkCore.Storage;
 using Nikcio.DataAccess.Repositories;
 
 namespace Nikcio.DataAccess.UnitOfWorks {

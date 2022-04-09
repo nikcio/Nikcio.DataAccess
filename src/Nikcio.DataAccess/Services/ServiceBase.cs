@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using System.Net;
 using Microsoft.Extensions.Logging;
-using Nikcio.DataAccess.UnitOfWorks;
 using Nikcio.DataAccess.Repositories;
 using Nikcio.DataAccess.Services.Models;
+using Nikcio.DataAccess.UnitOfWorks;
 
 namespace Nikcio.DataAccess.Services {
     /// <summary>
@@ -42,7 +42,7 @@ namespace Nikcio.DataAccess.Services {
                 await CommitUnitOfWorkAsync();
                 return new ServiceResponse<TDomain>(statusCode, response);
             } catch (Exception ex) {
-                Logger.LogError(ex, $"Task failed with {typeof(TDomain)}");
+                Logger.LogError(ex, "Task failed with {TDomain}", typeof(TDomain));
                 return new ServiceResponse<TDomain>(HttpStatusCode.InternalServerError, null);
             }
         }

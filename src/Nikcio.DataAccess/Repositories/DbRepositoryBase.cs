@@ -1,5 +1,5 @@
-﻿using Nikcio.DataAccess.Contexts.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Nikcio.DataAccess.Contexts.Models;
 
 namespace Nikcio.DataAccess.Repositories {
     /// <summary>

@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using System.Net;
 using Microsoft.Extensions.Logging;
-using Nikcio.DataAccess.Repositories.Crud;
-using Nikcio.DataAccess.Repositories;
 using Nikcio.DataAccess.Models;
+using Nikcio.DataAccess.Repositories;
+using Nikcio.DataAccess.Repositories.Crud;
 using Nikcio.DataAccess.Services.Models;
 using Nikcio.DataAccess.Settings;
 

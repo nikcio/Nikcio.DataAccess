@@ -1,7 +1,7 @@
-﻿using Nikcio.DataAccess.Contexts.Models;
-using Nikcio.DataAccess.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Nikcio.DataAccess.Contexts.Models;
+using Nikcio.DataAccess.Models;
 
 namespace Nikcio.DataAccess.Repositories.Crud {
     /// <inheritdoc/>
@@ -34,7 +34,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 var createdEntity = await dbSet.AddAsync(entity).ConfigureAwait(false);
                 return createdEntity.Entity;
             } catch (Exception e) {
-                logger.LogError(e, $"Failed while adding {typeof(TDomain)}");
+                logger.LogError(e, "Failed while adding {TDomain}", typeof(TDomain));
                 throw new TaskCanceledException("Task failed");
             }
         }
@@ -47,7 +47,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                     dbSet.Remove(entity);
                 }
             } catch (Exception e) {
-                logger.LogError(e, $"Failed on Delete with {typeof(TDomain)}");
+                logger.LogError(e, "Failed on Delete with {TDomain}", typeof(TDomain));
                 throw new TaskCanceledException("Task failed");
             }
         }
@@ -57,7 +57,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
             try {
                 return await dbSet.ToListAsync().ConfigureAwait(false);
             } catch (Exception e) {
-                logger.LogError(e, $"Failed getting all {typeof(TDomain)}");
+                logger.LogError(e, "Failed getting all {TDomain}", typeof(TDomain));
                 throw new TaskCanceledException("Task failed");
             }
         }
@@ -67,7 +67,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
             try {
                 return await dbSet.FindAsync(id).ConfigureAwait(false);
             } catch (Exception e) {
-                logger.LogError(e, $"Failed on GetById with {typeof(TDomain)} with id {id}");
+                logger.LogError(e, "Failed on GetById with {TDomain} with id {Id}", typeof(TDomain), id);
                 throw new TaskCanceledException("Task failed");
             }
         }
@@ -77,7 +77,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
             try {
                 return await Task.FromResult(dbSet).ConfigureAwait(false);
             } catch (Exception e) {
-                logger.LogError(e, $"Failed query {typeof(TDomain)}");
+                logger.LogError(e, "Failed query {TDomain}", typeof(TDomain));
                 throw new TaskCanceledException("Task failed");
             }
         }
@@ -89,7 +89,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 var updatedEntity = dbSet.Update(entity);
                 return updatedEntity.Entity;
             } catch (Exception e) {
-                logger.LogError(e, $"Failed on Update with {typeof(TDomain)}");
+                logger.LogError(e, "Failed on Update with {TDomain}", typeof(TDomain));
                 throw new ArgumentException("Failed updating entity");
             }
         }
@@ -115,7 +115,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 collectionKeySelector(domain).AddRange(loadedCollection);
                 return domain;
             } catch (Exception e) {
-                logger.LogError(e, $"Failed while adding collection {typeof(List<TCollectionItemType>)} to {typeof(TDomain)}");
+                logger.LogError(e, "Failed while adding collection {TCollection} to {TDomain}", typeof(List<TCollectionItemType>), typeof(TDomain));
                 throw new TaskCanceledException("Task failed");
             }
         }
@@ -141,7 +141,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 collectionKeySelector(domain).RemoveAll(collectionItem => collection.Any(c => c.Id == collectionItem.Id));
                 return domain;
             } catch (Exception e) {
-                logger.LogError(e, $"Failed while removing collection {typeof(List<TCollectionItemType>)} from {typeof(TDomain)}");
+                logger.LogError(e, "Failed while removing collection {TCollection} from {TDomain}", typeof(List<TCollectionItemType>), typeof(TDomain));
                 throw new TaskCanceledException("Task failed");
             }
         }
