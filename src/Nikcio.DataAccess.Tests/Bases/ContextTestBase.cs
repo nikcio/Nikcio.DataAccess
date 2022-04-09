@@ -1,15 +1,11 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nikcio.DataAccess.TestBase.Contexts;
-using Nikcio.DataAccess.TestBase.Models.Houses;
 
-namespace Nikcio.DataAccess.Tests
-{
+namespace Nikcio.DataAccess.Tests.Bases {
     [TestClass]
-    public class TestBase
-    {
+    public class ContextTestBase {
         private const string _connectionString = "Server=localhost,55555;Database=TestDatabase;User Id='sa';Password='Fe1tgmd%ff#DJNhGm3yoF6wl%!VI7v'";
 
         [TestInitialize]

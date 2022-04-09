@@ -2,37 +2,30 @@
 
 #nullable disable
 
-namespace Nikcio.DataAccess.TestBase.Migrations
-{
-    public partial class initial : Migration
-    {
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
+namespace Nikcio.DataAccess.TestBase.Migrations {
+    public partial class initial : Migration {
+        protected override void Up(MigrationBuilder migrationBuilder) {
             migrationBuilder.CreateTable(
                 name: "TEST_Addresses",
-                columns: table => new
-                {
+                columns: table => new {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     StreetName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
                 },
-                constraints: table =>
-                {
+                constraints: table => {
                     table.PrimaryKey("PK_TEST_Addresses", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "TEST_Houses",
-                columns: table => new
-                {
+                columns: table => new {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Windows = table.Column<int>(type: "int", nullable: false),
                     Doors = table.Column<int>(type: "int", nullable: false),
                     AddressId = table.Column<int>(type: "int", nullable: true)
                 },
-                constraints: table =>
-                {
+                constraints: table => {
                     table.PrimaryKey("PK_TEST_Houses", x => x.Id);
                     table.ForeignKey(
                         name: "FK_TEST_Houses_TEST_Addresses_AddressId",
@@ -47,8 +40,7 @@ namespace Nikcio.DataAccess.TestBase.Migrations
                 column: "AddressId");
         }
 
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
+        protected override void Down(MigrationBuilder migrationBuilder) {
             migrationBuilder.DropTable(
                 name: "TEST_Houses");
 

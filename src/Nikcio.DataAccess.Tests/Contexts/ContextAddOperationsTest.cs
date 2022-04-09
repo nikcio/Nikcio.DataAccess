@@ -5,10 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nikcio.DataAccess.TestBase.Models.Addresses;
 using Nikcio.DataAccess.TestBase.Models.Houses;
+using Nikcio.DataAccess.Tests.Bases;
 
 namespace Nikcio.DataAccess.Tests.Contexts {
     [TestClass]
-    public class ContextAddOperationsTest : TestBase {
+    public class ContextAddOperationsTest : ContextTestBase {
 
         [TestMethod]
         public void Context_Add_House_Simple() {
