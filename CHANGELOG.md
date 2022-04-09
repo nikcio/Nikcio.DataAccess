@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://github.com/nikcio/Nikcio.DataAccess/compare/v2.0.2...v2.0.3) (2022-04-09)
+
+
+### Bug Fixes
+
+* Added configureAwait to async methods ([523f1a5](https://github.com/nikcio/Nikcio.DataAccess/commit/523f1a5bbf42246ad790352a5d16f0ffb029d834))
+* Fixed dbcontext disposed in some cases ([42ffa5a](https://github.com/nikcio/Nikcio.DataAccess/commit/42ffa5ab06b5610eaa29729d8de5c713a7ed14bb))
+* Fixed relation data would be reset ([9368ce9](https://github.com/nikcio/Nikcio.DataAccess/commit/9368ce90e146916af3e816899d9213462da6844a))
+* Fixed spelling error Reponse --> Response ([4d1ee34](https://github.com/nikcio/Nikcio.DataAccess/commit/4d1ee34658e38b49276520b6e7de934ad447900b))
+
 ### [2.0.2](https://github.com/nikcio/Nikcio.DataAccess/compare/v2.0.1...v2.0.2) (2022-03-01)
 
 
