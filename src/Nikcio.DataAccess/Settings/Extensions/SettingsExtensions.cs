@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Nikcio.DataAccess.Settings.Extensions.Options;
 
 namespace Nikcio.DataAccess.Settings.Extensions {
     /// <summary>
@@ -10,12 +11,11 @@ namespace Nikcio.DataAccess.Settings.Extensions {
         /// Adds the data access settings
         /// </summary>
         /// <param name="services"></param>
-        /// <param name="configuration"></param>
-        /// <param name="configurationSection"></param>
+        /// <param name="settingsOptions"></param>
         /// <returns></returns>
-        public static IServiceCollection AddSettings(this IServiceCollection services, IConfiguration configuration, string configurationSection) {
+        public static IServiceCollection AddSettings(this IServiceCollection services, SettingsOptions settingsOptions) {
             var dataAccessSettings = new DataAccessSettings();
-            configuration.Bind(configurationSection, dataAccessSettings);
+            settingsOptions.Configuration.Bind(settingsOptions.ConfigurationSection, dataAccessSettings);
             services
                 .AddSingleton(dataAccessSettings);
 
