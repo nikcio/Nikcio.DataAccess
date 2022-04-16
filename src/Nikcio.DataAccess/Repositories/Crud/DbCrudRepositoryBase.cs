@@ -1,7 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Nikcio.DataAccess.Contexts.Models;
 using Nikcio.DataAccess.Models;
 
 namespace Nikcio.DataAccess.Repositories.Crud {

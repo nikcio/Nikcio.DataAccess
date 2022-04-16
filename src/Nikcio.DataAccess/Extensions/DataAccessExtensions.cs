@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Nikcio.DataAccess.Extensions.Options;
 using Nikcio.DataAccess.Settings.Extensions;
 using Nikcio.DataAccess.UnitOfWorks.Extensions;
 

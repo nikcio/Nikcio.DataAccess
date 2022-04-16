@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Nikcio.DataAccess.Settings.Extensions.Options;
 
-namespace Nikcio.DataAccess.Extensions {
+namespace Nikcio.DataAccess.Extensions.Options {
     /// <summary>
     /// Options for the data access package
     /// </summary>
