@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nikcio.DataAccess.Settings.Extensions;
+using Nikcio.DataAccess.UnitOfWorks.Extensions;
 
 namespace Nikcio.DataAccess.Extensions {
     /// <inheritdoc/>
@@ -24,7 +25,8 @@ namespace Nikcio.DataAccess.Extensions {
         /// <returns></returns>
         public static IServiceCollection AddDataAccess(this IServiceCollection services, IConfiguration configuration, string configurationSection) {
             services
-                .AddSettings(configuration, configurationSection);
+                .AddSettings(configuration, configurationSection)
+                .AddUnitOfWorks();
 
             return services;
         }
