@@ -10,11 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nikcio.DataAccess.TestBase", "Nikcio.DataAccess.TestBase\Nikcio.DataAccess.TestBase.csproj", "{68ED74E0-4729-4CC1-8CB7-43BB7A989D6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.DataAccess.TestBase", "Nikcio.DataAccess.TestBase\Nikcio.DataAccess.TestBase.csproj", "{68ED74E0-4729-4CC1-8CB7-43BB7A989D6D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3CFE7BF9-0531-497D-975F-070F60A0C975}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nikcio.DataAccess.Tests", "Nikcio.DataAccess.Tests\Nikcio.DataAccess.Tests.csproj", "{338A7B95-944D-4006-A9FE-28D3C0A208E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nikcio.DataAccess.Tests", "Nikcio.DataAccess.Tests\Nikcio.DataAccess.Tests.csproj", "{338A7B95-944D-4006-A9FE-28D3C0A208E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
