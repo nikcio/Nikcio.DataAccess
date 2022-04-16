@@ -13,7 +13,7 @@ namespace Nikcio.DataAccess.TestBase.Migrations
 {
     [DbContext(typeof(TestContext))]
     [Migration("20220407192810_initial")]
-    partial class initial
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
