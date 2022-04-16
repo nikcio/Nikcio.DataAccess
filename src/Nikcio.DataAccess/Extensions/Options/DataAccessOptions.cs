@@ -9,7 +9,7 @@ namespace Nikcio.DataAccess.Extensions.Options {
         /// <summary>
         /// Options for the settings
         /// </summary>
-        public SettingsOptions SettingsOptions { get; set; }
+        public virtual SettingsOptions SettingsOptions { get; set; }
 
         /// <inheritdoc/>
         public DataAccessOptions(IConfiguration configuration) {

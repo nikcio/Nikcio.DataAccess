@@ -12,9 +12,11 @@ namespace Nikcio.DataAccess.Services.Models {
             StatusCode = statusCode;
             ResponseValue = reponse;
         }
+
         /// <inheritdoc/>
-        public HttpStatusCode StatusCode { get; set; }
+        public virtual HttpStatusCode StatusCode { get; set; }
+
         /// <inheritdoc/>
-        public T? ResponseValue { get; set; }
+        public virtual T? ResponseValue { get; set; }
     }
 }

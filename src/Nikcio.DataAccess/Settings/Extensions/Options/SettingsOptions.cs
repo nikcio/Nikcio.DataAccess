@@ -8,12 +8,12 @@ namespace Nikcio.DataAccess.Settings.Extensions.Options {
         /// <summary>
         /// The app configuration
         /// </summary>
-        public IConfiguration Configuration { get; set; }
+        public virtual IConfiguration Configuration { get; set; }
 
         /// <summary>
         /// The configruation section to use for the settings
         /// </summary>
-        public string ConfigurationSection { get; set; } = "Nikcio:DataAccess";
+        public virtual string ConfigurationSection { get; set; } = "Nikcio:DataAccess";
 
         /// <inheritdoc/>
         public SettingsOptions(IConfiguration configuration) {

@@ -6,8 +6,16 @@ namespace Nikcio.DataAccess.Repositories {
     /// </summary>
     public abstract class DbRepositoryBase<TDbContext> : IDbRepositoryBase<TDbContext>
         where TDbContext : DbContext {
+
         private TDbContext? _context;
-        private readonly IDbContextFactory<TDbContext> _contextFactory;
+
+        /// <summary>
+        /// The DbContext factory
+        /// </summary>
+        /// <remarks>
+        /// This should only be used if GetDBContext cannot be used
+        /// </remarks>
+        protected readonly IDbContextFactory<TDbContext> _contextFactory;
 
         /// <inheritdoc/>
         protected DbRepositoryBase(IDbContextFactory<TDbContext> contextFactory) {

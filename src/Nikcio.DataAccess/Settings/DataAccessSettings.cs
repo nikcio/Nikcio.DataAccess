@@ -8,6 +8,6 @@ namespace Nikcio.DataAccess.Settings {
         /// <summary>
         /// The default isolation level of generic methods
         /// </summary>
-        public IsolationLevel DefaultIsolationLevel { get; set; } = IsolationLevel.Serializable;
+        public virtual IsolationLevel DefaultIsolationLevel { get; set; } = IsolationLevel.Serializable;
     }
 }
