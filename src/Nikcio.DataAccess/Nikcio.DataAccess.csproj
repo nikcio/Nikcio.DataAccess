@@ -24,7 +24,7 @@
 	<!-- Generate XML documentation -->
 	<PropertyGroup>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-		<Version>2.0.3</Version>
+		<Version>3.0.0</Version>
 		<Authors>nikcio</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Description>Generic models for data access with EF Core</Description>
