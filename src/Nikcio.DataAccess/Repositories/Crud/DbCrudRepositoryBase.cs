@@ -35,7 +35,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 return createdEntity.Entity;
             } catch (Exception e) {
                 logger.LogError(e, "Failed while adding {TDomain}", typeof(TDomain));
-                throw new TaskCanceledException("Task failed");
+                throw new TaskCanceledException("Task failed", e);
             }
         }
 
@@ -48,7 +48,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 }
             } catch (Exception e) {
                 logger.LogError(e, "Failed on Delete with {TDomain}", typeof(TDomain));
-                throw new TaskCanceledException("Task failed");
+                throw new TaskCanceledException("Task failed", e);
             }
         }
 
@@ -58,7 +58,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 return await dbSet.ToListAsync().ConfigureAwait(false);
             } catch (Exception e) {
                 logger.LogError(e, "Failed getting all {TDomain}", typeof(TDomain));
-                throw new TaskCanceledException("Task failed");
+                throw new TaskCanceledException("Task failed", e);
             }
         }
 
@@ -68,7 +68,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 return await dbSet.FindAsync(id).ConfigureAwait(false);
             } catch (Exception e) {
                 logger.LogError(e, "Failed on GetById with {TDomain} with id {Id}", typeof(TDomain), id);
-                throw new TaskCanceledException("Task failed");
+                throw new TaskCanceledException("Task failed", e);
             }
         }
 
@@ -78,7 +78,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 return await Task.FromResult(dbSet).ConfigureAwait(false);
             } catch (Exception e) {
                 logger.LogError(e, "Failed query {TDomain}", typeof(TDomain));
-                throw new TaskCanceledException("Task failed");
+                throw new TaskCanceledException("Task failed", e);
             }
         }
 
@@ -90,7 +90,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 return updatedEntity.Entity;
             } catch (Exception e) {
                 logger.LogError(e, "Failed on Update with {TDomain}", typeof(TDomain));
-                throw new ArgumentException("Failed updating entity");
+                throw new ArgumentException("Failed updating entity", e);
             }
         }
 
@@ -116,7 +116,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 return domain;
             } catch (Exception e) {
                 logger.LogError(e, "Failed while adding collection {TCollection} to {TDomain}", typeof(List<TCollectionItemType>), typeof(TDomain));
-                throw new TaskCanceledException("Task failed");
+                throw new TaskCanceledException("Task failed", e);
             }
         }
 
@@ -142,7 +142,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
                 return domain;
             } catch (Exception e) {
                 logger.LogError(e, "Failed while removing collection {TCollection} from {TDomain}", typeof(List<TCollectionItemType>), typeof(TDomain));
-                throw new TaskCanceledException("Task failed");
+                throw new TaskCanceledException("Task failed", e);
             }
         }
     }
