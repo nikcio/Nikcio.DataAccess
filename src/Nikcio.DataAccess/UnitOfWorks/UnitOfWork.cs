@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.Logging;
 using Nikcio.DataAccess.Repositories;
 
 namespace Nikcio.DataAccess.UnitOfWorks {
@@ -9,13 +10,12 @@ namespace Nikcio.DataAccess.UnitOfWorks {
         where TRepository : IDbRepositoryBase<DbContext> {
         private readonly DbContext _context;
         private IDbContextTransaction? _transaction;
+        private readonly ILogger<UnitOfWork<TRepository>> _logger;
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="repository"></param>
-        public UnitOfWork(TRepository repository) {
+        /// <inheritdoc/>
+        public UnitOfWork(TRepository repository, ILogger<UnitOfWork<TRepository>> logger) {
             _context = repository.GetDBContext();
+            _logger = logger;
         }
 
         /// <inheritdoc/>
@@ -40,6 +40,19 @@ namespace Nikcio.DataAccess.UnitOfWorks {
                 }
             } else {
                 throw new ArgumentNullException("_transtaction", "_transtaction cannot be null");
+            }
+        }
+
+        /// <inheritdoc/>
+        public async Task CloseUnitOfWorkAsync() {
+            if (_transaction != null) {
+                try {
+                    await _transaction.RollbackAsync();
+                } catch (Exception ex) {
+                    _logger.LogError(ex, "Failed closing Unit of Work");
+                }
+                _transaction.Dispose();
+                _transaction = null;
             }
         }
     }

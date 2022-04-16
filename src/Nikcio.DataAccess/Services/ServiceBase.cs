@@ -46,6 +46,7 @@ namespace Nikcio.DataAccess.Services {
                 return new ServiceResponse<TDomain>(statusCode, response);
             } catch (Exception ex) {
                 Logger.LogError(ex, "Task failed with {TDomain}", typeof(TDomain));
+                await UnitOfWork.CloseUnitOfWorkAsync();
                 return new ServiceResponse<TDomain>(HttpStatusCode.InternalServerError, null);
             }
         }

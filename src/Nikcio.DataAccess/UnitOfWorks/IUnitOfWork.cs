@@ -26,5 +26,11 @@ namespace Nikcio.DataAccess.UnitOfWorks {
         /// </summary>
         /// <returns></returns>
         Task CommitUnitOfWorkAsync();
+
+        /// <summary>
+        /// Closes a unit of work in case of a faulty execution
+        /// </summary>
+        /// <returns></returns>
+        Task CloseUnitOfWorkAsync();
     }
 }
