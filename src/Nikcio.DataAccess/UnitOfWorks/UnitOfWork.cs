@@ -41,9 +41,12 @@ namespace Nikcio.DataAccess.UnitOfWorks {
                     _context.SaveChanges();
                     await _transaction.CommitAsync();
                 } catch (Exception ex) {
+                    _logger.LogError(ex, "Failed to commit transaction");
                     await _transaction.RollbackAsync();
                     throw new DbUpdateException("Failed commiting transaction", ex);
                 }
+                await _transaction.DisposeAsync();
+                _transaction = null;
             } else {
                 throw new ArgumentNullException("_transtaction", "_transtaction cannot be null");
             }
