@@ -17,11 +17,7 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         /// </summary>
         protected readonly DbSet<TDomain> dbSet;
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="contextFactory"></param>
-        /// <param name="logger"></param>
+        /// <inheritdoc/>
         protected DbCrudRepositoryBase(IDbContextFactory<DbContext> contextFactory, ILogger<DbCrudRepositoryBase<TDomain>> logger) : base(contextFactory) {
             dbSet = GetDBContext().Set<TDomain>();
             this.logger = logger;

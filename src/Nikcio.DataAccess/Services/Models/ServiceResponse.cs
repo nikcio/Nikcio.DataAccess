@@ -3,11 +3,7 @@
 namespace Nikcio.DataAccess.Services.Models {
     /// <inheritdoc/>
     public class ServiceResponse<T> : IServiceResponse<T> where T : class {
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="statusCode"></param>
-        /// <param name="reponse"></param>
+        /// <inheritdoc/>
         public ServiceResponse(HttpStatusCode statusCode, T? reponse) {
             StatusCode = statusCode;
             ResponseValue = reponse;
