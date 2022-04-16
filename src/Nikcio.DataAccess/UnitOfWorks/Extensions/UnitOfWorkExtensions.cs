@@ -15,7 +15,7 @@ namespace Nikcio.DataAccess.UnitOfWorks.Extensions {
         /// <returns></returns>
         public static IServiceCollection AddUnitOfWorks(this IServiceCollection services) {
             services
-                .AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
+                .AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
             return services;
         }

@@ -32,5 +32,11 @@ namespace Nikcio.DataAccess.UnitOfWorks {
         /// </summary>
         /// <returns></returns>
         Task CloseUnitOfWorkAsync();
+
+        /// <summary>
+        /// Sets the dbContext of the unit of work
+        /// </summary>
+        /// <param name="repository"></param>
+        void SetDbContext(TRepository repository);
     }
 }

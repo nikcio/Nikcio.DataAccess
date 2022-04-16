@@ -24,9 +24,10 @@ namespace Nikcio.DataAccess.Services {
         protected IUnitOfWork<TRepository> UnitOfWork { get; }
 
         /// <inheritdoc/>
-        protected ServiceBase(ILogger<ServiceBase<TRepository>> logger, IUnitOfWork<TRepository> unitOfWork) {
+        protected ServiceBase(ILogger<ServiceBase<TRepository>> logger, IUnitOfWork<TRepository> unitOfWork, TRepository repository) {
             Logger = logger;
             UnitOfWork = unitOfWork;
+            UnitOfWork.SetDbContext(repository);
         }
 
         /// <summary>
