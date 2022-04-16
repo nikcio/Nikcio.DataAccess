@@ -7,7 +7,7 @@ namespace Nikcio.DataAccess.Services {
     /// A base for a service
     /// </summary>
     /// <typeparam name="TRepository"></typeparam>
-    public interface IServiceBase<TRepository> : IUnitOfWork<TRepository>
+    public interface IServiceBase<TRepository>
         where TRepository : IDbRepositoryBase<DbContext> {
     }
 }

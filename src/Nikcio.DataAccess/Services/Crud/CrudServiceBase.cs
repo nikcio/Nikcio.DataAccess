@@ -7,6 +7,7 @@ using Nikcio.DataAccess.Repositories;
 using Nikcio.DataAccess.Repositories.Crud;
 using Nikcio.DataAccess.Services.Models;
 using Nikcio.DataAccess.Settings;
+using Nikcio.DataAccess.UnitOfWorks;
 
 namespace Nikcio.DataAccess.Services.Crud {
     /// <inheritdoc/>
@@ -23,13 +24,8 @@ namespace Nikcio.DataAccess.Services.Crud {
         /// </summary>
         protected readonly DataAccessSettings dataAccessSettings;
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="repository"></param>
-        /// <param name="logger"></param>
-        /// <param name="dataAccessSettings"></param>
-        protected CrudServiceBase(TRepository repository, ILogger<ServiceBase<TRepository>> logger, DataAccessSettings dataAccessSettings) : base(repository, logger) {
+        /// <inheritdoc/>
+        protected CrudServiceBase(TRepository repository, ILogger<ServiceBase<TRepository>> logger, DataAccessSettings dataAccessSettings, IUnitOfWork<TRepository> unitOfWork) : base(logger, unitOfWork) {
             this.repository = repository;
             this.dataAccessSettings = dataAccessSettings;
         }

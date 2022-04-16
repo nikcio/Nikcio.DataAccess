@@ -11,7 +11,7 @@ namespace Nikcio.DataAccess.Services {
     /// A base for a service
     /// </summary>
     /// <typeparam name="TRepository"></typeparam>
-    public abstract class ServiceBase<TRepository> : UnitOfWork<TRepository>, IServiceBase<TRepository>
+    public abstract class ServiceBase<TRepository> : IServiceBase<TRepository>
         where TRepository : IDbRepositoryBase<DbContext> {
         /// <summary>
         /// The logger
@@ -19,12 +19,14 @@ namespace Nikcio.DataAccess.Services {
         protected ILogger<ServiceBase<TRepository>> Logger { get; }
 
         /// <summary>
-        /// Default constructor
+        /// The unit of work
         /// </summary>
-        /// <param name="repository"></param>
-        /// <param name="logger"></param>
-        protected ServiceBase(TRepository repository, ILogger<ServiceBase<TRepository>> logger) : base(repository) {
+        protected IUnitOfWork<TRepository> UnitOfWork { get; }
+
+        /// <inheritdoc/>
+        protected ServiceBase(ILogger<ServiceBase<TRepository>> logger, IUnitOfWork<TRepository> unitOfWork) {
             Logger = logger;
+            UnitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -38,9 +40,9 @@ namespace Nikcio.DataAccess.Services {
         protected virtual async Task<IServiceResponse<TDomain>> ExecuteServiceTask<TDomain>(Func<Task<TDomain?>> func, HttpStatusCode statusCode, IsolationLevel IsolationLevel)
             where TDomain : class {
             try {
-                await BeginUnitOfWorkAsync(IsolationLevel);
+                await UnitOfWork.BeginUnitOfWorkAsync(IsolationLevel);
                 var response = await func.Invoke().ConfigureAwait(false);
-                await CommitUnitOfWorkAsync();
+                await UnitOfWork.CommitUnitOfWorkAsync();
                 return new ServiceResponse<TDomain>(statusCode, response);
             } catch (Exception ex) {
                 Logger.LogError(ex, "Task failed with {TDomain}", typeof(TDomain));
