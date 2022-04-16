@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Nikcio.DataAccess.Contexts.Models;
 using Nikcio.DataAccess.Models;
@@ -103,16 +104,17 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         /// <param name="collectionKeySelector"></param>
         /// <returns></returns>
         /// <exception cref="TaskCanceledException"></exception>
-        protected virtual async Task<TDomain> AddToCollection<TCollectionItemType>(int id, int[] collectionIds, Func<TDomain, List<TCollectionItemType>> collectionKeySelector)
+        protected virtual async Task<TDomain> AddToCollection<TCollectionItemType>(int id, int[] collectionIds, Expression<Func<TDomain, List<TCollectionItemType>>> collectionKeySelector)
             where TCollectionItemType : class, IGenericId, new() {
             try {
-                var domain = await GetByIdAsync(id).ConfigureAwait(false);
+                Func<TDomain, List<TCollectionItemType>> compiledCollectionKeySelector = collectionKeySelector.Compile();
+                var domain = await dbSet.Include(collectionKeySelector).FirstOrDefaultAsync(item => item.Id == id);
                 if (domain == null) {
                     throw new ArgumentException("Id must reference a valid entity", nameof(id));
                 }
-                var collection = collectionIds.Where(itemId => !collectionKeySelector(domain).Any(item => item.Id == itemId));
+                var collection = collectionIds.Where(itemId => !compiledCollectionKeySelector(domain).Any(item => item.Id == itemId));
                 var loadedCollection = GetDBContext().Set<TCollectionItemType>().Where(item => collection.Any(id => id == item.Id));
-                collectionKeySelector(domain).AddRange(loadedCollection);
+                compiledCollectionKeySelector(domain).AddRange(loadedCollection);
                 return domain;
             } catch (Exception e) {
                 logger.LogError(e, "Failed while adding collection {TCollection} to {TDomain}", typeof(List<TCollectionItemType>), typeof(TDomain));
@@ -129,16 +131,16 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         /// <param name="collectionKeySelector"></param>
         /// <returns></returns>
         /// <exception cref="TaskCanceledException"></exception>
-        protected virtual async Task<TDomain> RemoveFromCollection<TCollectionItemType>(int id, int[] collectionIds, Func<TDomain, List<TCollectionItemType>> collectionKeySelector)
+        protected virtual async Task<TDomain> RemoveFromCollection<TCollectionItemType>(int id, int[] collectionIds, Expression<Func<TDomain, List<TCollectionItemType>>> collectionKeySelector)
             where TCollectionItemType : class, IGenericId, new() {
             try {
-                var domain = await GetByIdAsync(id).ConfigureAwait(false);
+                Func<TDomain, List<TCollectionItemType>> compiledCollectionKeySelector = collectionKeySelector.Compile();
+                var domain = await dbSet.Include(collectionKeySelector).FirstOrDefaultAsync(item => item.Id == id);
                 var collection = collectionIds.Select(itemId => new TCollectionItemType { Id = itemId });
                 if (domain == null) {
                     throw new ArgumentException("Id must reference a valid entity", nameof(id));
                 }
-
-                collectionKeySelector(domain).RemoveAll(collectionItem => collection.Any(c => c.Id == collectionItem.Id));
+                compiledCollectionKeySelector(domain).RemoveAll(collectionItem => collection.Any(c => c.Id == collectionItem.Id));
                 return domain;
             } catch (Exception e) {
                 logger.LogError(e, "Failed while removing collection {TCollection} from {TDomain}", typeof(List<TCollectionItemType>), typeof(TDomain));
