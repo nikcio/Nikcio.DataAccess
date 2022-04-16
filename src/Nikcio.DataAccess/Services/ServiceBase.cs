@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Net;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Nikcio.DataAccess.Repositories;
 using Nikcio.DataAccess.Services.Models;
@@ -11,7 +12,7 @@ namespace Nikcio.DataAccess.Services {
     /// </summary>
     /// <typeparam name="TRepository"></typeparam>
     public abstract class ServiceBase<TRepository> : UnitOfWork<TRepository>, IServiceBase<TRepository>
-        where TRepository : IDbRepositoryBase {
+        where TRepository : IDbRepositoryBase<DbContext> {
         /// <summary>
         /// The logger
         /// </summary>

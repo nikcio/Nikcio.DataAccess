@@ -1,4 +1,5 @@
-﻿using Nikcio.DataAccess.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Nikcio.DataAccess.Repositories;
 using Nikcio.DataAccess.UnitOfWorks;
 
 namespace Nikcio.DataAccess.Services {
@@ -7,6 +8,6 @@ namespace Nikcio.DataAccess.Services {
     /// </summary>
     /// <typeparam name="TRepository"></typeparam>
     public interface IServiceBase<TRepository> : IUnitOfWork<TRepository>
-        where TRepository : IDbRepositoryBase {
+        where TRepository : IDbRepositoryBase<DbContext> {
     }
 }

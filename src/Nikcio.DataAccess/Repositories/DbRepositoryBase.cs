@@ -5,20 +5,28 @@ namespace Nikcio.DataAccess.Repositories {
     /// <summary>
     /// A base for creating a repository
     /// </summary>
-    public abstract class DbRepositoryBase : IDbRepositoryBase {
-        private readonly DbContext _context;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="context"></param>
-        protected DbRepositoryBase(IDbContext context) {
-            _context = context.Context;
-        }
+    public abstract class DbRepositoryBase<TDbContext> : IDbRepositoryBase<TDbContext>
+        where TDbContext : DbContext {
+        private TDbContext? _context;
+        private readonly IDbContextFactory<TDbContext> _contextFactory;
 
         /// <inheritdoc/>
-        public virtual DbContext GetDBContext() {
-            return _context;
+        protected DbRepositoryBase(IDbContextFactory<TDbContext> contextFactory) {
+            _contextFactory = contextFactory;
+        }
+
+
+        /// <inheritdoc/>
+        public virtual TDbContext GetDBContext() {
+            if (_context == null) {
+                _context = _contextFactory.CreateDbContext();
+                if (_context == null) {
+                    throw new NullReferenceException("DbContext wasn't created.");
+                }
+                return _context;
+            } else {
+                return _context;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using Nikcio.DataAccess.Repositories;
 namespace Nikcio.DataAccess.UnitOfWorks {
     /// <inheritdoc/>
     public class UnitOfWork<TRepository> : IUnitOfWork<TRepository>
-        where TRepository : IDbRepositoryBase {
+        where TRepository : IDbRepositoryBase<DbContext> {
         private readonly DbContext _context;
         private IDbContextTransaction? _transaction;
 

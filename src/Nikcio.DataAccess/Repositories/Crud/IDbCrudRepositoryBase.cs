@@ -1,11 +1,12 @@
-﻿using Nikcio.DataAccess.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Nikcio.DataAccess.Models;
 
 namespace Nikcio.DataAccess.Repositories.Crud {
     /// <summary>
     /// A base for creating a crud repository
     /// </summary>
     /// <typeparam name="TDomain"></typeparam>
-    public interface IDbCrudRepositoryBase<TDomain> : IDbRepositoryBase
+    public interface IDbCrudRepositoryBase<TDomain> : IDbRepositoryBase<DbContext>
         where TDomain : class, IGenericId, new() {
         /// <summary>
         /// Queries the dbset

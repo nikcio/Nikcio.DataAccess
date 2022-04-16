@@ -3,9 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Nikcio.DataAccess.Settings.Extensions;
 
 namespace Nikcio.DataAccess.Extensions {
-    /// <summary>
-    /// Extensions
-    /// </summary>
+    /// <inheritdoc/>
     public static class DataAccessExtensions {
         /// <summary>
         /// Adds services for data access

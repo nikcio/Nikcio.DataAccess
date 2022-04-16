@@ -1,4 +1,5 @@
-﻿using Nikcio.DataAccess.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Nikcio.DataAccess.Models;
 using Nikcio.DataAccess.Repositories;
 using Nikcio.DataAccess.Repositories.Crud;
 
@@ -10,6 +11,6 @@ namespace Nikcio.DataAccess.Services.Crud {
     /// <typeparam name="TRepository"></typeparam>
     public interface ICrudServiceBase<TDomain, TRepository> : IServiceBase<TRepository>, ICrudService<TDomain>
         where TDomain : class, IGenericId, new()
-        where TRepository : IDbRepositoryBase, IDbCrudRepositoryBase<TDomain> {
+        where TRepository : IDbRepositoryBase<DbContext>, IDbCrudRepositoryBase<TDomain> {
     }
 }

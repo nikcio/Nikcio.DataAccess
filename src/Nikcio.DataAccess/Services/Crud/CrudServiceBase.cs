@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Net;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Nikcio.DataAccess.Models;
 using Nikcio.DataAccess.Repositories;
@@ -11,7 +12,7 @@ namespace Nikcio.DataAccess.Services.Crud {
     /// <inheritdoc/>
     public abstract class CrudServiceBase<TDomain, TRepository> : ServiceBase<TRepository>, ICrudServiceBase<TDomain, TRepository>
         where TDomain : class, IGenericId, new()
-        where TRepository : IDbRepositoryBase, IDbCrudRepositoryBase<TDomain> {
+        where TRepository : IDbRepositoryBase<DbContext>, IDbCrudRepositoryBase<TDomain> {
         /// <summary>
         /// The repository to excecute the action on
         /// </summary>

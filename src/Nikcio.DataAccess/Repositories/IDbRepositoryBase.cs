@@ -4,11 +4,12 @@ namespace Nikcio.DataAccess.Repositories {
     /// <summary>
     /// A base for a database repository
     /// </summary>
-    public interface IDbRepositoryBase {
+    public interface IDbRepositoryBase<TDbContext>
+        where TDbContext : DbContext {
         /// <summary>
         /// Gets the db context
         /// </summary>
         /// <returns></returns>
-        DbContext GetDBContext();
+        TDbContext GetDBContext();
     }
 }

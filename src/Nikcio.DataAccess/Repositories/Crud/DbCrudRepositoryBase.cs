@@ -5,7 +5,7 @@ using Nikcio.DataAccess.Models;
 
 namespace Nikcio.DataAccess.Repositories.Crud {
     /// <inheritdoc/>
-    public class DbCrudRepositoryBase<TDomain> : DbRepositoryBase, IDbCrudRepositoryBase<TDomain>
+    public class DbCrudRepositoryBase<TDomain> : DbRepositoryBase<DbContext>, IDbCrudRepositoryBase<TDomain>
         where TDomain : class, IGenericId, new() {
         /// <summary>
         /// The logger
@@ -20,10 +20,10 @@ namespace Nikcio.DataAccess.Repositories.Crud {
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="dbContext"></param>
+        /// <param name="contextFactory"></param>
         /// <param name="logger"></param>
-        protected DbCrudRepositoryBase(IDbContext dbContext, ILogger<DbCrudRepositoryBase<TDomain>> logger) : base(dbContext) {
-            dbSet = dbContext.Context.Set<TDomain>();
+        protected DbCrudRepositoryBase(IDbContextFactory<DbContext> contextFactory, ILogger<DbCrudRepositoryBase<TDomain>> logger) : base(contextFactory) {
+            dbSet = GetDBContext().Set<TDomain>();
             this.logger = logger;
         }
 
