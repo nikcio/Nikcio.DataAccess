@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/nikcio/Nikcio.DataAccess/compare/v2.0.3...v3.0.0) (2022-04-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Changed extension call signature
+* Changed CrudServiceBase constructor signature
+* Changed call signature on RemoveFromCollection and AddToCollection
+* Changed call signature of DbCrudRepositoryBase
+
+### Features
+
+* Added CloseUnitOfWorkAsync ([06ea7cb](https://github.com/nikcio/Nikcio.DataAccess/commit/06ea7cb77b228f7cbf9fe480bb04fbd281af083d))
+* Added modifiers to enable extensibility ([b1253fa](https://github.com/nikcio/Nikcio.DataAccess/commit/b1253faefce000b8fd7e47d7fe0c83fd76e40d18))
+* Added option classes for extensions ([053e8fc](https://github.com/nikcio/Nikcio.DataAccess/commit/053e8fc6a35bfdee3e9a5363edf9da2f2aacf0e4))
+* Added Unit of work services ([c44976f](https://github.com/nikcio/Nikcio.DataAccess/commit/c44976f18f1cc4b6415f978018e0908cf26b2572))
+* Decoupled service base and unit of work ([dda64b1](https://github.com/nikcio/Nikcio.DataAccess/commit/dda64b157d0bc0889db91671c659bccb993842e5))
+* Updated dbcontext creation logic ([ad9d135](https://github.com/nikcio/Nikcio.DataAccess/commit/ad9d1356bf4f87948872a19fe09a8bf07381418e))
+* Updated exceptions to include more information ([68271cc](https://github.com/nikcio/Nikcio.DataAccess/commit/68271cca7e019d09b044600d46fb9e59906a29f4))
+
+
+### Bug Fixes
+
+* Added check for transaction is null ([aa762b0](https://github.com/nikcio/Nikcio.DataAccess/commit/aa762b05652430bac4c0a80982d2e421fe73781c))
+* Dispose transaction on commit ([f839281](https://github.com/nikcio/Nikcio.DataAccess/commit/f83928195a23c1124e2bb2e47304f848f32d189b))
+* Fixed collections not loaded on AddToCollection and RemoveFromCollection leading to strange behaviour ([e1850e5](https://github.com/nikcio/Nikcio.DataAccess/commit/e1850e520bd32ff45ed3a473f9a4537b05096654))
+* Fixed Unit of work using wrong DbContext ([01380d6](https://github.com/nikcio/Nikcio.DataAccess/commit/01380d671e78a3be33992de3b34535413e120e2b))
+
 ### [2.0.3](https://github.com/nikcio/Nikcio.DataAccess/compare/v2.0.2...v2.0.3) (2022-04-09)
 
 
