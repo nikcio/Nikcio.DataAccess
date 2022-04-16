@@ -20,7 +20,13 @@ namespace Nikcio.DataAccess.UnitOfWorks {
 
         /// <inheritdoc/>
         public async Task BeginUnitOfWorkAsync(IsolationLevel IsolationLevel) {
-            _transaction = await _context.Database.BeginTransactionAsync(IsolationLevel);
+            if (_transaction != null) {
+                var exception = new InvalidOperationException("Cannot open new transaction while current transaction is not closed");
+                _logger.LogError(exception, "Cannot open new transaction while current transaction is not closed");
+                throw exception;
+            } else {
+                _transaction = await _context.Database.BeginTransactionAsync(IsolationLevel);
+            }
         }
 
         /// <inheritdoc/>
